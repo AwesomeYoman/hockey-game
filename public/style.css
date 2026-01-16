@@ -1,0 +1,448 @@
+/* 全局樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* 屏幕切換 */
+.screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+/* 菜單界面樣式 */
+.menu-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.menu-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 按鈕樣式 */
+.btn {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+.btn-secondary:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-small:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 加入房間區域 */
+.join-room-section {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.join-room-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.1em;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* 房間列表區域 */
+.room-list-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.room-list-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.room-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.room-item .room-id {
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.room-item .room-players {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-message {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+}
+
+/* 遊戲界面樣式 */
+#gameScreen {
+    flex-direction: column;
+    padding: 20px;
+}
+
+.game-header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.room-info {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+}
+
+.room-info strong {
+    color: #ffd700;
+}
+
+.score-board {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.score-label {
+    font-size: 0.6em;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 1.5em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score-divider {
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+
+/* Canvas 容器 */
+.canvas-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#gameCanvas {
+    display: block;
+    background: #1a1a2e;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 覆蓋層樣式 */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+/* 倒計時覆蓋層 */
+.countdown-text {
+    font-size: 8em;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* 進球消息覆蓋層 */
+.goal-message {
+    font-size: 4em;
+    font-weight: bold;
+    color: #4CAF50;
+    text-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 遊戲結束覆蓋層 */
+.game-over-message {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.game-over-message h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-over-message p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* 等待玩家覆蓋層 */
+.waiting-message {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.waiting-message p {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.players-count {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .menu-container {
+        padding: 20px;
+    }
+
+    .menu-container h1 {
+        font-size: 1.8em;
+    }
+
+    .game-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .score-board {
+        font-size: 1.2em;
+    }
+
+    .countdown-text {
+        font-size: 5em;
+    }
+
+    .goal-message {
+        font-size: 2.5em;
+    }
+
+    .game-over-message h2 {
+        font-size: 2em;
+    }
+
+    #gameCanvas {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .countdown-text {
+        font-size: 4em;
+    }
+
+    .goal-message {
+        font-size: 2em;
+    }
+}
+
+/* 滾動條樣式 */
+.room-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.room-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.room-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.room-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}

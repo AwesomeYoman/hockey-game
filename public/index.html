@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在線曲棍球遊戲 - 1v1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主菜單/房間選擇界面 -->
+    <div id="menuScreen" class="screen">
+        <div class="menu-container">
+            <h1>🏒 在線曲棍球遊戲</h1>
+            
+            <!-- 創建房間按鈕 -->
+            <button id="createRoomBtn" class="btn btn-primary">創建房間</button>
+            
+            <!-- 加入房間區域 -->
+            <div class="join-room-section">
+                <h2>加入房間</h2>
+                <div class="input-group">
+                    <input type="text" id="roomIdInput" placeholder="輸入房間ID" maxlength="6">
+                    <button id="joinRoomBtn" class="btn btn-secondary">加入</button>
+                </div>
+            </div>
+            
+            <!-- 房間列表 -->
+            <div class="room-list-section">
+                <h2>可用房間</h2>
+                <button id="refreshRoomsBtn" class="btn btn-small">刷新列表</button>
+                <div id="roomList" class="room-list">
+                    <p class="empty-message">載入中...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遊戲界面 -->
+    <div id="gameScreen" class="screen hidden">
+        <!-- 遊戲信息欄 -->
+        <div class="game-header">
+            <div class="room-info">
+                <span>房間ID: <strong id="currentRoomId"></strong></span>
+                <span>玩家: <strong id="playerSide"></strong></span>
+            </div>
+            <div class="score-board">
+                <div class="score left-score">
+                    <span class="score-label">左側</span>
+                    <span class="score-value" id="leftScore">0</span>
+                </div>
+                <div class="score-divider">:</div>
+                <div class="score right-score">
+                    <span class="score-value" id="rightScore">0</span>
+                    <span class="score-label">右側</span>
+                </div>
+            </div>
+            <button id="leaveRoomBtn" class="btn btn-small">離開房間</button>
+        </div>
+
+        <!-- Canvas 遊戲區域 -->
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <!-- 倒計時覆蓋層 -->
+            <div id="countdownOverlay" class="overlay hidden">
+                <div class="countdown-text" id="countdownText">3</div>
+            </div>
+            
+            <!-- 進球消息覆蓋層 -->
+            <div id="goalOverlay" class="overlay hidden">
+                <div class="goal-message" id="goalMessage">進球！</div>
+            </div>
+            
+            <!-- 遊戲結束覆蓋層 -->
+            <div id="gameOverOverlay" class="overlay hidden">
+                <div class="game-over-message">
+                    <h2 id="winnerText">遊戲結束</h2>
+                    <p id="finalScore"></p>
+                    <button id="restartGameBtn" class="btn btn-primary">再玩一次</button>
+                </div>
+            </div>
+            
+            <!-- 等待玩家覆蓋層 -->
+            <div id="waitingOverlay" class="overlay">
+                <div class="waiting-message">
+                    <p>等待其他玩家加入...</p>
+                    <p class="players-count">玩家: <span id="playersCount">1/2</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io 客戶端庫 -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

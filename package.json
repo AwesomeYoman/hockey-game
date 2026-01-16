@@ -1,0 +1,25 @@
+{
+  "name": "online-hockey-game",
+  "version": "1.0.0",
+  "description": "Online 1v1 Hockey Game with Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "hockey",
+    "game",
+    "socket.io",
+    "multiplayer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.1",
+    "socket.io": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
