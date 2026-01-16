@@ -13,7 +13,6 @@
     "socket.io",
     "multiplayer"
   ],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "express": "^4.22.1",
