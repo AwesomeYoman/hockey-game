@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Pong Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">NEON PONG</h1>
+
+        <div id="menu" class="menu-panel">
+            <div class="status-box">
+                <p>My ID: <span id="myPeerId" class="highlight">Connecting...</span></p>
+                <button id="copyIdBtn" class="btn small">Copy</button>
+            </div>
+
+            <div class="actions">
+                <div class="action-group">
+                    <h3>Host Game</h3>
+                    <p>Share your ID with a friend.</p>
+                    <div id="hostStatus" class="status-msg">Waiting for opponent...</div>
+                </div>
+
+                <div class="divider">OR</div>
+
+                <div class="action-group">
+                    <h3>Join Game</h3>
+                    <input type="text" id="joinInput" placeholder="Enter Friend's ID">
+                    <button id="joinBtn" class="btn primary">JOIN GAME</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameUI" class="game-panel hidden">
+            <div class="score-board">
+                <div class="score">P1: <span id="score1">0</span></div>
+                <div class="score">P2: <span id="score2">0</span></div>
+            </div>
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            <div id="gameStatus" class="overlay-msg hidden"></div>
+            <button id="disconnectBtn" class="btn secondary">Disconnect</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
